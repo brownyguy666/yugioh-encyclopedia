@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yu-Gi-Oh! OCG Series 1 Encyclopedia</title>
+    <meta name="description" content="Ensiklopedia lengkap kartu Yu-Gi-Oh! OCG Series 1 (1999-2000) — 7 Volume, 7 Booster, keterkaitan kartu, dan deck meta.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-particles" id="bgParticles"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="#" class="logo" onclick="scrollToSection('hero'); return false;">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 40 40" fill="none"><polygon points="20,2 38,20 20,38 2,20" stroke="url(#gG)" stroke-width="2" fill="none"/><polygon points="20,8 32,20 20,32 8,20" fill="url(#gG)" opacity="0.3"/><defs><linearGradient id="gG" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#FFD700"/><stop offset="50%" stop-color="#FFA500"/><stop offset="100%" stop-color="#FFD700"/></linearGradient></defs></svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">SERIES 1</span>
+                    <span class="logo-subtitle">OCG ENCYCLOPEDIA</span>
+                </div>
+            </a>
+            <div class="header-search-wrap">
+                <div class="header-search-box">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <input type="text" id="globalSearchInput" placeholder="Cari kartu (Exodia, Skull, dll)..." autocomplete="off">
+                    <button class="search-clear" id="searchClearBtn" onclick="clearGlobalSearch()" style="display:none;">✕</button>
+                </div>
+                <div class="search-dropdown" id="searchDropdown"></div>
+            </div>
+            <nav class="nav" id="mainNav">
+                <a href="#census-section" class="nav-link" data-section="census-section">🏛️ Sensus 717</a>
+                <a href="#sets-section" class="nav-link active" data-section="sets-section">📦 Set</a>
+                <a href="#synergies-section" class="nav-link" data-section="synergies-section">🔗 Keterkaitan</a>
+                <a href="#meta-section" class="nav-link" data-section="meta-section">🏆 Meta Decks</a>
+                <a href="#timeline-section" class="nav-link" data-section="timeline-section">📅 Timeline</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <!-- 3D Floating Meta Monsters Field -->
+        <div class="floating-cards-field" id="floatingCardsField"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge-tag">⚔️ OCG 1999–2000 FOUNDATION ERA</div>
+            <h1 class="hero-title">
+                <span class="hero-line1">Yu-Gi-Oh! OCG</span>
+                <span class="hero-line2">Series 1 Encyclopedia</span>
+            </h1>
+            <p class="hero-desc">Ensiklopedia resmi fondasi kartu Yu-Gi-Oh! — mencakup tepat <strong>717 Kartu Unik Baru</strong> yang dicetak di Jepang sepanjang era 1999–2000 dari <strong>27 Rilis &amp; Set Lengkap</strong>. Jelajahi basis data kartu, keterkaitan sinergi, dan deck meta legendaris.</p>
+            <div class="hero-stats">
+                <div class="hero-stat"><span class="hero-stat-num" id="totalCards">717</span><span class="hero-stat-label">Kartu Unik Baru</span></div>
+                <div class="hero-stat"><span class="hero-stat-num" id="totalSets">27</span><span class="hero-stat-label">Rilis / Set</span></div>
+                <div class="hero-stat"><span class="hero-stat-num" id="totalSynergies">12</span><span class="hero-stat-label">Keterkaitan</span></div>
+                <div class="hero-stat"><span class="hero-stat-num" id="totalDecks">7</span><span class="hero-stat-label">Meta Decks</span></div>
+            </div>
+
+            <!-- Meta Monsters Floating Stream Showcase -->
+            <div class="hero-meta-stream">
+                <div class="stream-header">
+                    <span class="stream-icon">✨</span>
+                    <span class="stream-title">MONSTER META ANDALAN SERIES 1</span>
+                    <span class="stream-hint">(Sorot atau klik kartu untuk rincian)</span>
+                </div>
+                <div class="stream-cards" id="heroMetaStream"></div>
+            </div>
+
+            <div class="hero-scroll-hint">
+                <span>Scroll untuk menjelajahi</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Census 717 Section -->
+    <section class="section" id="census-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <div class="hero-badge-tag" style="margin-bottom:12px;">📊 SENSUS RESMI KARTU UNIK DEBUT</div>
+                <h2 class="section-title">🏛️ Sensus 717 Kartu Unik Series 1</h2>
+                <p class="section-desc">Rekapitulasi lengkap kartu unik baru berdasarkan 11 sumber rilis resmi Konami &amp; Shueisha di Jepang (Februari 1999 – Maret 2000).</p>
+            </div>
+
+            <!-- Census Overview Cards -->
+            <div class="census-overview-grid">
+                <div class="census-stat-card">
+                    <span class="csc-icon">📦</span>
+                    <span class="csc-num">580</span>
+                    <span class="csc-label">Core Volumes &amp; Boosters</span>
+                    <span class="csc-desc">Vol. 1–7 (334 kartu) &amp; Booster 1–7 (280 kartu)</span>
+                </div>
+                <div class="census-stat-card">
+                    <span class="csc-icon">🎁</span>
+                    <span class="csc-num">73</span>
+                    <span class="csc-label">Starter Box Editions</span>
+                    <span class="csc-desc">Starter Box (56 baru) + EX Starter Box (17 baru)</span>
+                </div>
+                <div class="census-stat-card">
+                    <span class="csc-icon">🏆</span>
+                    <span class="csc-num">64</span>
+                    <span class="csc-label">Promos, Games &amp; Special</span>
+                    <span class="csc-desc">Hadiah Tokyo Dome, DM2, Shin DM, LE1, PP2, DCE, VB1</span>
+                </div>
+                <div class="census-stat-card highlight">
+                    <span class="csc-icon">⭐</span>
+                    <span class="csc-num">717</span>
+                    <span class="csc-label">Total Kartu Unik Debut</span>
+                    <span class="csc-desc">100% Terindeks &amp; Dapat Dicari di Ensiklopedia Ini</span>
+                </div>
+            </div>
+
+            <!-- Census Interactive Table -->
+            <div class="census-table-wrap">
+                <table class="census-table">
+                    <thead>
+                        <tr>
+                            <th>Sumber Kartu</th>
+                            <th>Kategori / Format</th>
+                            <th style="text-align:center;">Kartu Unik Baru</th>
+                            <th>Porsi dari Total (717)</th>
+                            <th style="text-align:center;">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="censusTableBody"></tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2"><strong>TOTAL KESELURUHAN</strong></td>
+                            <td style="text-align:center;"><strong class="gold-text">717</strong></td>
+                            <td><div class="census-bar-full">100% (717 Kartu Unik)</div></td>
+                            <td style="text-align:center;"><strong>11 Sumber</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sets Section -->
+    <section class="section" id="sets-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2 class="section-title">📦 Set Kartu</h2>
+                <p class="section-desc">Koleksi lengkap 27 rilis era Series 1: 7 Volume booster reguler, 7 Booster Carddass, Starter Box, dan Special &amp; Promo Packs.</p>
+                <div class="set-tabs">
+                    <button class="set-tab active" onclick="filterSets('all')">Semua (27)</button>
+                    <button class="set-tab" onclick="filterSets('volume')">Volume (7)</button>
+                    <button class="set-tab" onclick="filterSets('booster')">Booster Carddass (7)</button>
+                    <button class="set-tab" onclick="filterSets('starter')">Starter Box (3)</button>
+                    <button class="set-tab" onclick="filterSets('special')">Special &amp; Promos (10)</button>
+                </div>
+            </div>
+            <div class="sets-grid" id="setsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Set Detail (hidden, shown dynamically) -->
+    <section class="section set-detail-section" id="set-detail-section" style="display:none;">
+        <div class="section-inner">
+            <button class="back-btn" onclick="closeSetDetail()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+                Kembali ke Daftar Set
+            </button>
+            <div id="setDetailContent"></div>
+        </div>
+    </section>
+
+    <!-- Synergies Section -->
+    <section class="section" id="synergies-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2 class="section-title">🔗 Keterkaitan Antar Kartu</h2>
+                <p class="section-desc">Kartu-kartu di Series 1 memiliki berbagai hubungan — dari Fusion Material, Exodia pieces, hingga sinergi tipe monster.</p>
+            </div>
+            <div class="synergies-grid" id="synergiesGrid"></div>
+        </div>
+    </section>
+
+    <!-- Meta Decks Section -->
+    <section class="section" id="meta-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2 class="section-title">🏆 Meta Decks</h2>
+                <p class="section-desc">Deck-deck terkuat yang bisa dibangun menggunakan card pool Series 1, berdasarkan periode rilis set.</p>
+            </div>
+            <div class="meta-grid" id="metaGrid"></div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section" id="timeline-section">
+        <div class="section-inner">
+            <div class="section-header">
+                <h2 class="section-title">📅 Timeline Rilis</h2>
+                <p class="section-desc">Perjalanan kronologis rilis set Series 1, dari Vol.1 hingga Booster 7.</p>
+            </div>
+            <div class="timeline" id="timeline"></div>
+        </div>
+    </section>
+
+    <!-- Card Detail Modal -->
+    <div class="modal-overlay" id="cardModal">
+        <div class="modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeCardModal()">✕</button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Synergy Detail Modal -->
+    <div class="modal-overlay" id="synergyModal">
+        <div class="modal modal-wide" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeSynergyModal()">✕</button>
+            <div class="modal-body" id="synergyModalBody"></div>
+        </div>
+    </div>
+
+    <!-- Deck Detail Modal -->
+    <div class="modal-overlay" id="deckModal">
+        <div class="modal modal-wide" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeDeckModal()">✕</button>
+            <div class="modal-body" id="deckModalBody"></div>
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+    </button>
+
+    <footer class="footer">
+        <p>Yu-Gi-Oh! OCG Series 1 Encyclopedia — Gambar dari <a href="https://ygoprodeck.com" target="_blank">YGOPRODeck</a></p>
+        <p class="footer-sm">Yu-Gi-Oh! © Konami / Kazuki Takahashi. Situs ini bukan produk resmi.</p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
